@@ -1,0 +1,653 @@
+import React, { useState, useEffect } from 'react';
+import { Sparkles, Zap, Smartphone, Rocket, Check, MessageCircle, Instagram, ChevronDown, ExternalLink, Clock, Target, Shield, Star, Users, TrendingUp } from 'lucide-react';
+
+export default function MarcaEvolutivaLanding() {
+  const [openFaq, setOpenFaq] = useState(null);
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const toggleFaq = (index) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+
+  const whatsappLink = "https://wa.me/17864122755?text=Hola%20quiero%20mi%20landing%20por%20$49";
+
+  return (
+    <div className="min-h-screen bg-black text-white font-sans overflow-x-hidden">
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+          font-family: 'Inter', sans-serif;
+        }
+        
+        h1, h2, h3, h4 {
+          font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        .gradient-text {
+          background: linear-gradient(135deg, #ff006e, #8338ec, #3a86ff, #fb5607);
+          background-size: 300% 300%;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          animation: gradient-shift 4s ease infinite;
+        }
+        
+        @keyframes gradient-shift {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+        }
+        
+        .glass-card {
+          background: rgba(20, 20, 30, 0.4);
+          backdrop-filter: blur(20px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .glass-card:hover {
+          background: rgba(30, 30, 45, 0.5);
+          border-color: rgba(255, 100, 200, 0.4);
+          transform: translateY(-6px);
+          box-shadow: 0 20px 60px rgba(131, 56, 236, 0.3);
+        }
+        
+        .glow-border {
+          position: relative;
+          border: 2px solid transparent;
+          background: linear-gradient(rgba(20, 20, 30, 0.8), rgba(20, 20, 30, 0.8)) padding-box,
+                      linear-gradient(135deg, #ff006e, #8338ec, #3a86ff) border-box;
+        }
+        
+        .glow-shadow {
+          box-shadow: 0 0 40px rgba(255, 0, 110, 0.3),
+                      0 0 80px rgba(131, 56, 236, 0.2);
+        }
+        
+        .pulse-glow {
+          animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulse {
+          0%, 100% {
+            box-shadow: 0 0 20px rgba(255, 0, 110, 0.4),
+                        0 0 40px rgba(131, 56, 236, 0.3);
+          }
+          50% {
+            box-shadow: 0 0 30px rgba(255, 0, 110, 0.6),
+                        0 0 60px rgba(131, 56, 236, 0.5);
+          }
+        }
+        
+        .fade-in-up {
+          animation: fadeInUp 0.8s ease-out forwards;
+          opacity: 0;
+        }
+        
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        .hover-lift {
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+          transform: translateY(-4px) scale(1.01);
+        }
+        
+        .btn-primary {
+          background: linear-gradient(135deg, #ff006e, #8338ec);
+          transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+          background: linear-gradient(135deg, #ff1a7f, #9349f5);
+          transform: scale(1.02);
+          box-shadow: 0 10px 40px rgba(255, 0, 110, 0.5);
+        }
+        
+        .parallax {
+          transform: translateY(${scrollY * 0.3}px);
+        }
+      `}</style>
+
+      {/* HERO SECTION */}
+      <section className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden">
+        {/* Background Effects */}
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black to-pink-900/20"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-600/10 rounded-full blur-3xl"></div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left Content */}
+          <div className="text-center lg:text-left space-y-8 fade-in-up">
+            <div className="inline-block px-4 py-2 rounded-full glass-card">
+              <p className="text-sm text-gray-300 flex items-center gap-2 justify-center lg:justify-start">
+                <Sparkles className="w-4 h-4 text-pink-400" />
+                Servicio de creación de landings · Ideal para anuncios
+              </p>
+            </div>
+            
+            <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
+              <span className="gradient-text">Creamos tu Landing Page moderna</span>
+              <br />
+              <span className="text-white">por solo $49</span>
+            </h1>
+            
+            <p className="text-xl text-gray-400 max-w-2xl">
+              Diseños premium optimizados para conversiones desde Meta Ads, TikTok Ads y Google Ads. Profesional, rápido y sin complicaciones.
+            </p>
+            
+            {/* Price Box */}
+            <div className="inline-block glow-border rounded-2xl p-6 glow-shadow">
+              <p className="text-gray-400 text-sm mb-2">Precio único</p>
+              <p className="text-6xl font-bold gradient-text">$49</p>
+              <p className="text-gray-500 text-sm mt-2">USD · Pago único</p>
+            </div>
+            
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <a 
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-3 justify-center pulse-glow"
+              >
+                <MessageCircle className="w-6 h-6" />
+                Quiero mi Landing por $49
+              </a>
+              <button className="px-8 py-4 rounded-full font-semibold text-lg glass-card hover-lift flex items-center gap-3 justify-center">
+                Ver ejemplos
+                <ExternalLink className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+          
+          {/* Right Visual */}
+          <div className="relative parallax hidden lg:block">
+            <div className="glass-card rounded-3xl p-8 glow-shadow">
+              <div className="aspect-[4/3] bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-2xl flex items-center justify-center">
+                <div className="text-center space-y-4">
+                  <Rocket className="w-24 h-24 mx-auto text-pink-400" />
+                  <p className="text-2xl font-bold gradient-text">Landing Premium</p>
+                  <p className="text-gray-400">Diseño Profesional</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* BENEFITS SECTION */}
+      <section className="py-24 px-4 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-900/5 to-transparent"></div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold mb-4">
+              <span className="gradient-text">Beneficios que obtienes</span>
+            </h2>
+            <p className="text-xl text-gray-400">Todo lo que necesitas en una sola landing</p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                icon: <Clock className="w-8 h-8" />,
+                title: "Entrega Rápida",
+                description: "Tu landing lista en 48-72 horas. Sin esperas innecesarias."
+              },
+              {
+                icon: <Target className="w-8 h-8" />,
+                title: "Diseñada para Conversión",
+                description: "Cada elemento optimizado para maximizar tus ventas desde anuncios."
+              },
+              {
+                icon: <Sparkles className="w-8 h-8" />,
+                title: "Estilo Oscuro Premium",
+                description: "Diseño moderno que destaca y genera confianza profesional."
+              },
+              {
+                icon: <Smartphone className="w-8 h-8" />,
+                title: "Optimizada para Móvil",
+                description: "Perfecta en cualquier dispositivo. Responsive 100%."
+              },
+              {
+                icon: <Zap className="w-8 h-8" />,
+                title: "Sin Complicaciones",
+                description: "Nosotros nos encargamos de todo. Tú solo promocionas."
+              },
+              {
+                icon: <Shield className="w-8 h-8" />,
+                title: "Soporte Incluido",
+                description: "Ajustes post-entrega incluidos en el precio."
+              }
+            ].map((benefit, index) => (
+              <div 
+                key={index}
+                className="glass-card rounded-2xl p-8 hover-lift group"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="text-pink-400 mb-4 group-hover:scale-110 transition-transform">
+                  {benefit.icon}
+                </div>
+                <h3 className="text-2xl font-bold mb-3">{benefit.title}</h3>
+                <p className="text-gray-400">{benefit.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WHAT'S INCLUDED SECTION */}
+      <section className="py-24 px-4 relative">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-5xl font-bold mb-4">
+              <span className="gradient-text">Qué incluye tu Landing de $49</span>
+            </h2>
+          </div>
+          
+          <div className="glow-border rounded-3xl p-8 md:p-12 glow-shadow glass-card">
+            <div className="space-y-6 mb-8">
+              {[
+                "Diseño profesional con estilo oscuro premium",
+                "Sección Hero con CTA optimizado",
+                "Sección de beneficios o servicios",
+                "Galería o showcase de productos/servicios",
+                "Testimonios o casos de éxito",
+                "Sección de preguntas frecuentes (FAQ)",
+                "Formulario de contacto o integración WhatsApp",
+                "100% responsive (móvil, tablet, desktop)",
+                "Optimización básica SEO",
+                "Hosting incluido por 1 mes",
+                "1 revisión de ajustes post-entrega"
+              ].map((item, index) => (
+                <div key={index} className="flex items-start gap-4">
+                  <div className="mt-1 flex-shrink-0">
+                    <Check className="w-6 h-6 text-green-400" />
+                  </div>
+                  <p className="text-lg text-gray-300">{item}</p>
+                </div>
+              ))}
+            </div>
+            
+            <a 
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary w-full py-4 rounded-full font-semibold text-lg flex items-center gap-3 justify-center pulse-glow"
+            >
+              <MessageCircle className="w-6 h-6" />
+              Solicitar mi Landing ahora
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* PORTFOLIO SECTION */}
+      <section className="py-24 px-4 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-pink-900/5 to-transparent"></div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold mb-4">
+              <span className="gradient-text">Ejemplos de nuestro trabajo</span>
+            </h2>
+            <p className="text-xl text-gray-400">Landings que convierten visitantes en clientes</p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "ZamusaCorp",
+                category: "Repuestos · B2B",
+                description: "Landing para empresa de repuestos automotrices con catálogo integrado"
+              },
+              {
+                title: "Centro Médico Premium",
+                category: "Salud · Servicios",
+                description: "Sitio profesional para clínica con sistema de citas online"
+              },
+              {
+                title: "Producto Estrella",
+                category: "E-commerce",
+                description: "Landing de conversión para producto único con checkout directo"
+              }
+            ].map((project, index) => (
+              <div 
+                key={index}
+                className="glass-card rounded-2xl overflow-hidden hover-lift group"
+              >
+                <div className="aspect-video bg-gradient-to-br from-purple-900/30 to-pink-900/30 relative overflow-hidden">
+                  <div className="absolute inset-0 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                    <Sparkles className="w-16 h-16 text-pink-400/50" />
+                  </div>
+                  <div className="absolute top-4 left-4">
+                    <span className="px-3 py-1 bg-black/50 backdrop-blur-md rounded-full text-xs text-pink-400 border border-pink-400/30">
+                      {project.category}
+                    </span>
+                  </div>
+                </div>
+                <div className="p-6 space-y-3">
+                  <h3 className="text-2xl font-bold">{project.title}</h3>
+                  <p className="text-gray-400">{project.description}</p>
+                  <button className="flex items-center gap-2 text-pink-400 hover:text-pink-300 transition-colors">
+                    Ver landing
+                    <ExternalLink className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS SECTION */}
+      <section className="py-24 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold mb-4">
+              <span className="gradient-text">Lo que dicen nuestros clientes</span>
+            </h2>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                text: "Increíble el resultado. Mi landing se ve profesional y ya estoy recibiendo consultas desde mis anuncios de Facebook. Totalmente recomendado.",
+                name: "Carlos M.",
+                role: "Dueño de tienda de repuestos"
+              },
+              {
+                text: "Rápido, profesional y exactamente lo que necesitaba. El diseño oscuro le da un toque premium que mis competidores no tienen.",
+                name: "Ana Rodríguez",
+                role: "Consultora de marketing"
+              },
+              {
+                text: "Excelente inversión. Por $49 obtuve una landing que parece hecha por una agencia grande. Las conversiones mejoraron notablemente.",
+                name: "Miguel Torres",
+                role: "Emprendedor digital"
+              }
+            ].map((testimonial, index) => (
+              <div 
+                key={index}
+                className="glass-card rounded-2xl p-8 hover-lift"
+              >
+                <div className="text-pink-400 mb-4">
+                  <Star className="w-8 h-8 fill-current" />
+                </div>
+                <p className="text-gray-300 mb-6 text-lg leading-relaxed">
+                  "{testimonial.text}"
+                </p>
+                <div className="border-t border-gray-700 pt-4">
+                  <p className="font-bold">{testimonial.name}</p>
+                  <p className="text-sm text-gray-500">{testimonial.role}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PROCESS SECTION */}
+      <section className="py-24 px-4 relative">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold mb-4">
+              <span className="gradient-text">Proceso simple en 3 pasos</span>
+            </h2>
+            <p className="text-xl text-gray-400">De la idea a tu landing publicada</p>
+          </div>
+          
+          <div className="space-y-8">
+            {[
+              {
+                step: "01",
+                title: "Me escribes por WhatsApp",
+                description: "Me cuentas sobre tu negocio, producto o servicio. Definimos objetivos y estilo.",
+                icon: <MessageCircle className="w-8 h-8" />
+              },
+              {
+                step: "02",
+                title: "Armamos la estructura",
+                description: "Diseño tu landing con todos los elementos optimizados para conversión.",
+                icon: <Sparkles className="w-8 h-8" />
+              },
+              {
+                step: "03",
+                title: "Publicamos y conectamos todo",
+                description: "Subo tu landing, conecto tus redes y te enseño a usarla. ¡Listo para vender!",
+                icon: <Rocket className="w-8 h-8" />
+              }
+            ].map((step, index) => (
+              <div 
+                key={index}
+                className="glass-card rounded-2xl p-8 hover-lift flex flex-col md:flex-row items-start gap-6"
+              >
+                <div className="flex-shrink-0">
+                  <div className="w-16 h-16 rounded-full glow-border flex items-center justify-center text-pink-400 glow-shadow">
+                    {step.icon}
+                  </div>
+                </div>
+                <div className="flex-grow">
+                  <div className="text-4xl font-bold gradient-text mb-3">{step.step}</div>
+                  <h3 className="text-2xl font-bold mb-3">{step.title}</h3>
+                  <p className="text-gray-400 text-lg">{step.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WHY CHOOSE US SECTION */}
+      <section className="py-24 px-4 relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-900/10 via-transparent to-pink-900/10"></div>
+        
+        <div className="relative z-10 max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold mb-4">
+              <span className="gradient-text">Por qué elegir Marca Evolutiva</span>
+            </h2>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                icon: <Target className="w-10 h-10" />,
+                title: "Especialistas en landings para campañas",
+                description: "Cada diseño está pensado para convertir tráfico de anuncios en clientes reales"
+              },
+              {
+                icon: <Sparkles className="w-10 h-10" />,
+                title: "Diseño premium oscuro y moderno",
+                description: "Estética profesional que genera confianza y destaca entre la competencia"
+              },
+              {
+                icon: <Users className="w-10 h-10" />,
+                title: "Experiencia multisector",
+                description: "Repuestos, salud, productos, servicios. Adaptamos el diseño a tu industria"
+              },
+              {
+                icon: <TrendingUp className="w-10 h-10" />,
+                title: "Entregas rápidas garantizadas",
+                description: "48-72 horas desde que confirmamos detalles. Sin demoras ni excusas"
+              }
+            ].map((item, index) => (
+              <div 
+                key={index}
+                className="flex gap-4 items-start"
+              >
+                <div className="flex-shrink-0 text-pink-400">
+                  {item.icon}
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                  <p className="text-gray-400">{item.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ SECTION */}
+      <section className="py-24 px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold mb-4">
+              <span className="gradient-text">Preguntas frecuentes</span>
+            </h2>
+          </div>
+          
+          <div className="space-y-4">
+            {[
+              {
+                q: "¿Cuánto tiempo tarda la entrega?",
+                a: "Entre 48 y 72 horas desde que confirmamos todos los detalles. Si necesitas algo urgente, consúltanos disponibilidad express."
+              },
+              {
+                q: "¿Puedo hacer cambios después de la entrega?",
+                a: "Sí, incluimos 1 revisión de ajustes dentro del precio. Cambios adicionales tienen un costo aparte según complejidad."
+              },
+              {
+                q: "¿El hosting está incluido?",
+                a: "Sí, incluimos hosting por el primer mes. Después puedes renovar con nosotros o migrar a tu propio servidor."
+              },
+              {
+                q: "¿Funciona con cualquier tipo de negocio?",
+                a: "Sí, adaptamos el diseño a tu industria: productos, servicios, B2B, B2C, salud, tecnología, etc."
+              },
+              {
+                q: "¿Puedo conectar mi dominio propio?",
+                a: "Sí, podemos conectar tu dominio existente o ayudarte a registrar uno nuevo (dominio no incluido en el precio)."
+              },
+              {
+                q: "¿Qué necesito para empezar?",
+                a: "Solo tu información: textos, imágenes/logos, colores preferidos y el objetivo de la landing. Nosotros nos encargamos del resto."
+              }
+            ].map((faq, index) => (
+              <div 
+                key={index}
+                className="glass-card rounded-xl overflow-hidden"
+              >
+                <button
+                  onClick={() => toggleFaq(index)}
+                  className="w-full p-6 text-left flex justify-between items-center hover:bg-white/5 transition-colors"
+                >
+                  <span className="text-lg font-semibold pr-4">{faq.q}</span>
+                  <ChevronDown 
+                    className={`w-5 h-5 flex-shrink-0 transition-transform ${
+                      openFaq === index ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+                {openFaq === index && (
+                  <div className="px-6 pb-6 text-gray-400 border-t border-white/10 pt-4">
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FINAL CTA SECTION */}
+      <section className="py-32 px-4 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-pink-900/30 to-purple-900/20"></div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-[600px] h-[600px] bg-pink-500/20 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
+          <h2 className="text-6xl md:text-7xl font-bold mb-6">
+            <span className="gradient-text">¿Listo para tener tu landing por $49?</span>
+          </h2>
+          <p className="text-2xl text-gray-300 mb-12">
+            Empieza a convertir visitantes en clientes hoy mismo
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
+            <a 
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary px-12 py-6 rounded-full font-bold text-xl flex items-center gap-4 justify-center pulse-glow"
+            >
+              <MessageCircle className="w-7 h-7" />
+              Solicitar mi Landing ahora
+            </a>
+          </div>
+          
+          <div className="flex items-center justify-center gap-3 text-gray-400">
+            <Instagram className="w-5 h-5" />
+            <span>Síguenos en</span>
+            <a 
+              href="https://instagram.com/marcaevolutiva" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-pink-400 hover:text-pink-300 font-semibold"
+            >
+              @marcaevolutiva
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="border-t border-white/10 py-12 px-4 relative">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-pink-500/50 to-transparent"></div>
+        
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+              <p className="text-2xl font-bold gradient-text">Marca Evolutiva</p>
+              <p className="text-gray-500 text-sm mt-1">Creación de landing pages profesionales</p>
+            </div>
+            
+            <div className="flex gap-8 items-center">
+              <a 
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+              >
+                <MessageCircle className="w-5 h-5" />
+                WhatsApp
+              </a>
+              <a 
+                href="https://instagram.com/marcaevolutiva"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+              >
+                <Instagram className="w-5 h-5" />
+                Instagram
+              </a>
+            </div>
+          </div>
+          
+          <div className="mt-8 pt-8 border-t border-white/5 text-center text-gray-500 text-sm">
+            <p>© 2024 Marca Evolutiva. Todos los derechos reservados.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
